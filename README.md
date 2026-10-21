@@ -2,6 +2,72 @@
 
 ## UML
 
+## main
+
+## int main():
+```
+  create a vector of Student pointers called students
+  call loadStudents to load the vector from the file
+
+  set keepGoing to true
+  while keepGoing:
+    call menu function to get string response
+    if response is "0":
+      set keepGoing to false
+    if response is "1":
+      go to showStudentNames function - pass ref to students
+    if response is "2":
+      go to printStudents function - pass ref to students
+    if response is "3":
+      go to findStudent - pass ref to students
+    if response is anything else:
+      ask for a valid input (covers everything else)
+
+  call delStudents and remove everything that is on the heap
+```
+
+## void loadStudents(std::vector<Student*>&)
+```
+  create file input stream inFile
+  create string currentLine
+
+  open up inFile with students.csv
+
+  read each line into currentLine
+    create a new instance of Student on the heap
+    call the student's init method using currentLine
+    push that student to the back of the vector
+  
+  close the input file
+```
+
+## void printStudents(std::vector<Student*>&)
+```
+
+```
+
+## void showStudentNames(std::vector<Student*>&)
+```
+
+```
+
+## void findStudent(std::vector<Student*>&)
+```
+
+```
+
+## void delStudents(std::vector<Student*>&)
+```
+
+```
+
+## std::string menu();
+```
+
+```
+
+## classes
+
 ```mermaid
 classDiagram
 
