@@ -78,3 +78,11 @@ std::string Student::getLastFirst(){
   std::string lastFirst = lastName + " " + firstName;
   return lastFirst;
 } // end getLastFirst
+
+std::string Student::getLastName(){
+  return lastName;
+} // end getLastName
+
+int Student::getCreditHours(){
+  return creditHours;
+} // end getCreditHours
