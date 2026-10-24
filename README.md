@@ -24,6 +24,7 @@
       ask for a valid input (covers everything else)
 
   call delStudents and remove everything that is on the heap
+  return 0
 ```
 
 ## void loadStudents(std::vector<Student*>&)
@@ -43,27 +44,52 @@
 
 ## void printStudents(std::vector<Student*>&)
 ```
-
+  for each student on the vector:
+    print student data
+    print a seperating line
 ```
 
 ## void showStudentNames(std::vector<Student*>&)
 ```
-
+  for each student on the vector:
+    print student last then first name
+    print creditHours
 ```
 
 ## void findStudent(std::vector<Student*>&)
 ```
+  create a string called enteredName
+  print "Enter part of a last name to search: "
+  let user type in text
 
+  set bool found to false
+  for all students in the vector:
+    if the student last name != npos:
+      print student data
+      print a seperating line
+      set bool found to true
 ```
 
 ## void delStudents(std::vector<Student*>&)
 ```
-
+  for each student on the vector:
+    delete student
+  clear students
 ```
 
 ## std::string menu();
 ```
+  create string named choice
+  
+  print an empty line
+  print option 0
+  print option 1
+  print option 2
+  print option 3
+  print "choose 0-3: "
 
+  put user input in choice
+  return choice
 ```
 
 ## classes
