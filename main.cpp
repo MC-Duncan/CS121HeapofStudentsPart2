@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <fstream>
 #include "dates.h"
 #include "address.h"
 #include "student.h"
@@ -32,18 +34,18 @@ int main(){
     std::string userChoice = menu();
 
       if (userChoice == "0"){
-        keepGoing = false
+        keepGoing = false;
       } // end if
       
-      if (userChoice == "1"){
+      else if (userChoice == "1"){
         showStudentNames(students);
       } // end if
       
-      if (userChoice == "2"{)
+      else if (userChoice == "2"){
         printStudents(students);
       } // end if
       
-      if (userChoice == "3"){
+      else if (userChoice == "3"){
 	findStudent(students);
       } // end if
 
@@ -55,7 +57,7 @@ int main(){
   return 0;
 } // end main
 
-void loadStudents(std::vector<Student*>& students){
+void loadStudents(std::vector<Student*>&){
   std::ifstream inFile;
   std::string currentLine;
 
@@ -75,30 +77,51 @@ void printStudents(std::vector<Student*>&){
   } // end for
 } // end printStudents
 
-void showStudentNames(std::vector<Student*>& students){
+void showStudentNames(std::vector<Student*>&){
   for (Student* student: students){
     std::cout << student->getLastFirst();
     std::cout << ", " << student->getCreditHours() << std::endl;
   } // end for
-> // end showStudentNames
+}  // end showStudentNames
 
-void findStudent(std::vector<Student*>& students){
+void findStudent(std::vector<Student*>&){
+  std::string enteredName;
+  std::cout << "Last name of students: ";
+  std::cin >> enteredName;
 
+  bool keepGoing = true;
+  for (Student* student: students){
+    if (student->getLastName() == enteredName){
+      std::cout << student->printStudent() << std::endl;
+      keepGoing = false;
+    } // end if
+  } // end for
 
+  if (!found){
+    std::cout << "No student found with last name: " << enteredName << std::endl;
+  } // end if
 } // end findStudent
 
 void delStudents(std::vector<Student*>&){
   for (Student* student: students){
-    delete students
+    delete student;
   } // end for
+  students.clear();
 } // end delStudents
 
 std::string menu(){
-  std::cout << "Please choose 0-3: "
+  std::string choice;
+  
+  std::cout << std::endl;
+  std::cout << "0: Quit" << std::endl;
+  std::cout << "1: Print All Student Names" << std::endl;
+  std::cout << "2: Print All Student Data" << std::endl;
+  std::cout << "3: Find a Student" << std::endl << std::endl;
+  std::cout << "Please choose 0-3: ";
 
-
+  std::cin >> choice;
+  return choice;
 } // end string menu
-
 
 //test functions
 void testAddress(){
